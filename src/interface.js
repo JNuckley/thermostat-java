@@ -7,7 +7,8 @@ $(document).ready(function() {
 $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
-
+//in the jquery, the first name before click is the name of the button made in the html files
+//up is the name of the method in the thermostat.js files
   $('#temperature-up').click(function() {
     thermostat.up();
     updateTemperature();
@@ -18,24 +19,20 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  $('#temp-reset').click(function() {
-    thermostat.reset();
-    updateTemperature();
-  });
-  // $('#thermostatreset').on('click', function() {
-  // thermostat.reset();
-  // $('#thermostattemperature').text(thermostat.temperature);
-  // $('#thermostatenergyUsage').text(thermostat.energyUsage());
-  // });
-  $('#psm-on').click(function() {
-    thermostat.powerSavingModeOn();
-    $('#power-saving').text('on')
+  $('#temperature-reset').click(function() {
+    thermostat.resetTemperature();
     updateTemperature();
   });
 
-  $('#psm-off').click(function() {
-    thermostat.powerSavingModeOff();
-    $('#power-saving').text('off')
+  $('#powersaving-on').click(function() {
+    thermostat.switchPowerSavingModeOn();
+    $('#power-saving-status').text('on')
+    updateTemperature();
+  });
+
+  $('#powersaving-off').click(function() {
+    thermostat.switchPowerSavingModeOff();
+    $('#power-saving-status').text('off')
     updateTemperature();
   });
 
